@@ -1,0 +1,11 @@
+{
+   "launchConfigs": {
+      "args": [
+         "--no-sandbox",
+         "--disable-setuid-sandbox",
+         "--disable-web-security",
+         "--font-render-hinting=none"
+      ],
+      "headless": true
+   }
+}
