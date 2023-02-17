@@ -1,27 +1,36 @@
 {
-   "name": "vuepe-printer",
-   "version": "1.0.0",
-   "description": "",
-   "main": "Printer.js",
-   "module": "Printer.js",
-   "files": [
-      "public/css/**",
-      "src/**",
-      "Printer.js",
-      "PuppeteerConfigs.json"
-   ],
-   "scripts": {
-      "build": "node ./scripts/build.js",
-      "test": "node ./tests/print.test.js"
-   },
-   "author": "nazmirket",
-   "license": "ISC",
-   "dependencies": {
-      "jsdom": "^21.1.0",
-      "puppeteer": "^19.6.2"
-   },
-   "devDependencies": {
-      "clean-css": "^5.3.2",
-      "sass": "^1.57.1"
-   }
+	"name": "vuepe-printer",
+	"version": "1.0.0",
+	"type": "commonjs",
+	"author": "nazmirket",
+	"main": "Printer.js",
+	"scripts": {
+		"lint": "eslint --fix --ignore-path .gitignore .",
+		"build": "node ./scripts/build.js",
+		"test": "node ./tests/print.test.js"
+	},
+	"dependencies": {
+		"jsdom": "^21.1.0",
+		"puppeteer": "^19.6.2"
+	},
+	"devDependencies": {
+		"clean-css": "^5.3.2",
+		"eslint": "^8.34.0",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-plugin-n": "^15.6.1",
+		"eslint-plugin-prettier": "^4.2.1",
+		"prettier": "^2.8.4",
+		"sass": "^1.57.1"
+	},
+	"license": "ISC",
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"module": "Printer.js",
+	"files": [
+		"dist/**",
+		"src/**",
+		"Printer.js",
+		"PuppeteerConfigs.json"
+	]
 }

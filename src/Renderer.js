@@ -2,7 +2,9 @@ const Viewer = require('./Viewer')
 const jsdom = require('jsdom')
 const { JSDOM } = jsdom
 
-const CSS = require('fs').readFileSync('./public/css/vuepe.css')
+const path = require('path')
+const CSS = require('fs').readFileSync(path.join(__dirname, '..', 'dist', 'vuepe.css'))
+
 const Fonts = require('./Fonts')
 
 const DefaultHTML = (w, h) => `
@@ -12,7 +14,7 @@ const DefaultHTML = (w, h) => `
       <script>
          WebFont.load({
             google: {
-               families: [${Fonts.map((f) => `'${f}'`).join(',')}]
+               families: [${Fonts.map(f => `'${f}'`).join(',')}]
             }
          });
       </script> 
@@ -29,14 +31,14 @@ const DefaultHTML = (w, h) => `
 `
 
 function load(w, h) {
-   const dom = new JSDOM(DefaultHTML(w, h))
-   return dom.window
+	const dom = new JSDOM(DefaultHTML(w, h))
+	return dom.window
 }
 
 module.exports = function render(page) {
-   const window = load(page.width, page.height)
-   const root = window.document.querySelector('.pe-viewer')
-   const viewer = new Viewer({ root, window })
-   viewer.render(page.components, page.style)
-   return window.document.documentElement.outerHTML
+	const window = load(page.width, page.height)
+	const root = window.document.querySelector('.pe-viewer')
+	const viewer = new Viewer({ root, window })
+	viewer.render(page.components, page.style)
+	return window.document.documentElement.outerHTML
 }

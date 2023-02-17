@@ -2,11 +2,11 @@ const StyleComposer = require('./StyleComposer')
 const Style = require('./Style')
 
 module.exports = class ViewStyle extends Style {
-   constructor(props) {
-      super(props)
-   }
+	constructor(props) {
+		super(props)
+	}
 
-   toString() {
-      return StyleComposer(this)
-   }
+	toString() {
+		return StyleComposer(this)
+	}
 }
